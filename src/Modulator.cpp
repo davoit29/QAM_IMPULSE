@@ -56,16 +56,24 @@ std::vector<std::complex<double>> Modulator::modulate(const std::vector<int>& bi
     else if (M == 16) {
         bitsPerSymbol = 4; 
     } 
-    else {
+    else if(M == 64) {
         bitsPerSymbol = 6; 
     }
 
     if (bits.size() % bitsPerSymbol != 0) {
-        std::cerr << "Warning: Bit count error" << std::endl;
+        std::cout << "Число битов должно быть кратно числу модуляции" << std::endl;
     }
 
-    for (size_t i = 0; i + bitsPerSymbol <= bits.size(); i += bitsPerSymbol) {
-        std::vector<int> symbolBits(bits.begin() + i, bits.begin() + i + bitsPerSymbol);
+    for (int i = 0; i + bitsPerSymbol <= (int)bits.size(); i += bitsPerSymbol) {
+        
+        //отрезазние блоков битов
+        std::vector<int> symbolBits; 
+
+        for (int j = 0; j < bitsPerSymbol; j++) {
+            
+            symbolBits.push_back(bits[i + j]); 
+        }
+        
         symbols.push_back(BitsToSymbol(symbolBits, M));
     }
 
