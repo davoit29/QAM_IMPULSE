@@ -1,12 +1,13 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-print("Чтение данных из results.csv...")
-# Загружаем данные из файла
+
+
 try:
     data = pd.read_csv('results.csv')
 except FileNotFoundError:
-    print("Ошибка: Файл results.csv не найден. Сначала запусти программу на C++!")
+    print("Ошибка" \
+    "")
     exit()
 
 
