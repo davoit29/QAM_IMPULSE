@@ -32,7 +32,7 @@ int main() {
     
     std::vector<int> modulations = {4, 16, 64};
 
-    std::cout << "Начинаем симуляцию для QPSK, 16-QAM и 64-QAM..." << std::endl;
+    
 
     
     for (double noise_var = 0.05; noise_var <= 5.0; noise_var += 0.05) {
