@@ -14,15 +14,15 @@ except FileNotFoundError:
 plt.figure(figsize=(10, 6))
 
 
-plt.plot(data['Variance'], data['BER_QPSK'], marker='o', linewidth=2, label='QPSK')
-plt.plot(data['Variance'], data['BER_QAM16'], marker='s', linewidth=2, label='16-QAM')
-plt.plot(data['Variance'], data['BER_QAM64'], marker='^', linewidth=2, label='64-QAM')
+plt.plot(data['Variance'], data['BER_QPSK'], linewidth=2, label='QPSK',color = 'black')
+plt.plot(data['Variance'], data['BER_QAM16'], linewidth=2, label='16-QAM' ,color = 'red')
+plt.plot(data['Variance'], data['BER_QAM64'], linewidth=2, label='64-QAM',color = 'green')
 
 
 plt.yscale('log') 
-plt.xlabel('Дисперсия шума (Noise Variance)')
-plt.ylabel('Вероятность ошибки на бит (BER)')
-plt.title('Зависимость BER от дисперсии шума для QAM')
+plt.xlabel('Дисперсия шума ')
+plt.ylabel('BER')
+plt.title('Зависимость BER от дисперсии шума ')
 
 
 plt.grid(True, which="both", ls="--", alpha=0.7)
@@ -30,7 +30,7 @@ plt.legend()
 
 
 plt.savefig('ber_plot.png', dpi=300, bbox_inches='tight')
-print("График успешно сохранен как ber_plot.png!")
+print("График готов")
 
 
 plt.show()
